@@ -4,10 +4,17 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>우리의 약속 ❤️</title>
 
 
 <style>
+
+* {
+    box-sizing:border-box;
+}
+
 
 body {
 
@@ -25,11 +32,13 @@ body {
 }
 
 
+
 .card {
 
-    width:420px;
+    width:90%;
+    max-width:420px;
 
-    padding:40px;
+    padding:30px;
 
     background:white;
 
@@ -42,11 +51,13 @@ body {
 }
 
 
+
 h1 {
 
     margin-bottom:30px;
 
 }
+
 
 
 .info {
@@ -86,6 +97,48 @@ button {
     font-size:17px;
 
     cursor:pointer;
+
+}
+
+
+
+/* 모바일 대응 */
+
+@media(max-width:480px){
+
+
+    .card {
+
+        padding:25px;
+
+    }
+
+
+    h1 {
+
+        font-size:24px;
+
+    }
+
+
+    .info {
+
+        font-size:16px;
+
+        padding:15px;
+
+    }
+
+
+    button {
+
+        width:160px;
+
+        height:42px;
+
+        font-size:15px;
+
+    }
 
 }
 
@@ -133,8 +186,6 @@ button {
 <script>
 
 
-// 이전 페이지에서 저장한 정보 불러오기
-
 document.getElementById("date").innerText =
 localStorage.getItem("date");
 
@@ -161,6 +212,8 @@ fetch("https://script.google.com/macros/s/AKfycbwcT-Eg4FsqgiqKIXS-Zre4cruaKm1Xo8
 
 method:"POST",
 
+mode:"no-cors",
+
 body:JSON.stringify({
 
 date:localStorage.getItem("date"),
@@ -180,6 +233,7 @@ alert("좋아! 이대로 놀러 가자 😆");
 
 
 }
+
 
 </script>
 
