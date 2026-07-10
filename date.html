@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>데이트 일정</title>
 
 
@@ -28,11 +29,11 @@ body {
 
 .card {
 
-    width:400px;
-    padding:40px;
+    width:90%;
+    max-width:400px;
+    padding:30px;
 
     background:white;
-
     border-radius:25px;
 
     text-align:center;
@@ -53,15 +54,15 @@ h1 {
 
 input {
 
-    width:200px;
-    padding:10px;
+    width:80%;
+    max-width:250px;
 
+    padding:10px;
     margin:10px;
 
     font-size:16px;
 
 }
-
 
 
 button {
@@ -84,7 +85,23 @@ button {
 }
 
 
+@media(max-width:480px){
 
+    .card {
+        padding:25px;
+    }
+
+
+    h1 {
+        font-size:24px;
+    }
+
+
+    button {
+        width:100px;
+    }
+
+}
 </style>
 
 
