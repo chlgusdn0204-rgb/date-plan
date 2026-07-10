@@ -2,10 +2,19 @@
 <html lang="ko">
 
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>우리 뭐 하고 놀까? 😊</title>
 
+
 <style>
+
+* {
+    box-sizing:border-box;
+}
+
 
 body {
     margin:0;
@@ -20,9 +29,13 @@ body {
 }
 
 
+
 .card {
-    width:450px;
-    padding:40px;
+
+    width:90%;
+    max-width:450px;
+
+    padding:30px;
 
     background:white;
 
@@ -31,7 +44,9 @@ body {
     text-align:center;
 
     box-shadow:0 10px 30px rgba(0,0,0,0.15);
+
 }
+
 
 
 h1 {
@@ -39,13 +54,17 @@ h1 {
 }
 
 
+
 .activities {
 
     display:grid;
+
     grid-template-columns:1fr 1fr 1fr;
+
     gap:15px;
 
 }
+
 
 
 button {
@@ -53,6 +72,7 @@ button {
     height:55px;
 
     border:none;
+
     border-radius:20px;
 
     background:#eee;
@@ -66,6 +86,7 @@ button {
 }
 
 
+
 button:hover {
 
     transform:scale(1.05);
@@ -73,12 +94,15 @@ button:hover {
 }
 
 
+
 .selected {
 
     background:#ff6699;
+
     color:white;
 
 }
+
 
 
 #confirm {
@@ -87,8 +111,62 @@ button:hover {
 
     width:150px;
 
+    height:45px;
+
     background:#ff6699;
+
     color:white;
+
+}
+
+
+
+/* 모바일 대응 */
+
+@media(max-width:480px){
+
+
+    .card {
+
+        padding:25px;
+
+    }
+
+
+    h1 {
+
+        font-size:24px;
+
+    }
+
+
+    .activities {
+
+        grid-template-columns:1fr 1fr;
+
+        gap:12px;
+
+    }
+
+
+    button {
+
+        height:50px;
+
+        font-size:15px;
+
+    }
+
+
+    #confirm {
+
+        width:130px;
+
+        height:42px;
+
+        font-size:15px;
+
+    }
 
 }
 
@@ -103,31 +181,61 @@ button:hover {
 
 <div class="card">
 
+
 <h1>우리 뭐 하고 놀까? 😊</h1>
+
 
 
 <div class="activities">
 
-<button onclick="selectPlay(this)">🎤 노래방</button>
 
-<button onclick="selectPlay(this)">🎬 영화</button>
+<button onclick="selectPlay(this)">
+🎤 노래방
+</button>
 
-<button onclick="selectPlay(this)">💻 PC방</button>
 
-<button onclick="selectPlay(this)">🎱 당구</button>
+<button onclick="selectPlay(this)">
+🎬 영화
+</button>
 
-<button onclick="selectPlay(this)">🎳 볼링</button>
 
-<button onclick="selectPlay(this)">🏓 탁구</button>
+<button onclick="selectPlay(this)">
+💻 PC방
+</button>
 
-<button onclick="selectPlay(this)">🏸 배드민턴</button>
 
-<button onclick="selectPlay(this)">🌳 산책</button>
+<button onclick="selectPlay(this)">
+🎱 당구
+</button>
 
-<button onclick="selectPlay(this)">☕ 카페</button>
+
+<button onclick="selectPlay(this)">
+🎳 볼링
+</button>
+
+
+<button onclick="selectPlay(this)">
+🏓 탁구
+</button>
+
+
+<button onclick="selectPlay(this)">
+🏸 배드민턴
+</button>
+
+
+<button onclick="selectPlay(this)">
+🌳 산책
+</button>
+
+
+<button onclick="selectPlay(this)">
+☕ 카페
+</button>
 
 
 </div>
+
 
 
 <button id="confirm" onclick="complete()">
@@ -141,10 +249,12 @@ button:hover {
 
 <script>
 
+
 let choice="";
 
 
 function selectPlay(btn){
+
 
 document.querySelectorAll(".activities button")
 .forEach(b=>{
@@ -154,7 +264,9 @@ document.querySelectorAll(".activities button")
 
 btn.classList.add("selected");
 
+
 choice=btn.innerText;
+
 
 }
 
@@ -162,9 +274,11 @@ choice=btn.innerText;
 
 function complete(){
 
+
     if(choice==""){
 
         alert("뭐 하고 놀지 골라줘 😊");
+
         return;
 
     }
@@ -175,7 +289,9 @@ function complete(){
 
     location.href="result.html";
 
+
 }
+
 
 </script>
 
