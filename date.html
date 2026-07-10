@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<title>데이트 일정</title>
+
+
+<style>
+
+
+body {
+
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff0f5;
+    font-family:Arial;
+
+}
+
+
+
+.card {
+
+    width:400px;
+    padding:40px;
+
+    background:white;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+
+}
+
+
+
+h1 {
+
+    margin-bottom:30px;
+
+}
+
+
+
+input {
+
+    width:200px;
+    padding:10px;
+
+    margin:10px;
+
+    font-size:16px;
+
+}
+
+
+
+button {
+
+    margin-top:20px;
+
+    width:120px;
+    height:45px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#ff6699;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+<h1>언제 만날까? 📅</h1>
+
+
+<p>날짜 선택</p>
+
+<input type="date">
+
+
+<p>시간 선택</p>
+
+<input type="time">
+
+
+<br>
+
+
+<button onclick="complete()">
+완료
+</button>
+
+
+</div>
+
+
+
+<script>
+
+function complete(){
+
+let date = document.querySelector('input[type="date"]').value;
+let time = document.querySelector('input[type="time"]').value;
+
+
+if(date=="" || time==""){
+    alert("날짜와 시간을 선택해줘!");
+    return;
+}
+
+
+localStorage.setItem("date", date);
+localStorage.setItem("time", time);
+
+
+location.href="food.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

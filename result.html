@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<title>우리의 약속 ❤️</title>
+
+
+<style>
+
+body {
+
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#ffeaf2;
+
+    font-family:Arial, sans-serif;
+
+}
+
+
+.card {
+
+    width:420px;
+
+    padding:40px;
+
+    background:white;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+
+}
+
+
+h1 {
+
+    margin-bottom:30px;
+
+}
+
+
+.info {
+
+    text-align:left;
+
+    font-size:18px;
+
+    line-height:2;
+
+    background:#fff5f8;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+
+button {
+
+    margin-top:30px;
+
+    width:180px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#ff6699;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+<h1>우리 약속 ❤️</h1>
+
+
+<div class="info">
+
+
+<p>📅 날짜 : <span id="date"></span></p>
+
+<p>⏰ 시간 : <span id="time"></span></p>
+
+<p>🍽 음식 : <span id="food"></span></p>
+
+<p>🎮 놀거리 : <span id="play"></span></p>
+
+
+</div>
+
+
+
+<button onclick="sendPlan()">
+약속 보내기 💌
+</button>
+
+
+</div>
+
+
+
+
+<script>
+
+
+// 이전 페이지에서 저장한 정보 불러오기
+
+document.getElementById("date").innerText =
+localStorage.getItem("date");
+
+
+document.getElementById("time").innerText =
+localStorage.getItem("time");
+
+
+document.getElementById("food").innerText =
+localStorage.getItem("food");
+
+
+document.getElementById("play").innerText =
+localStorage.getItem("play");
+
+
+
+
+
+function sendPlan(){
+
+
+fetch("https://script.google.com/macros/s/AKfycbwznPP2wwcJF5tA6kf0Ef8o5NAzkSy_BybPsapm3mACF9KDRJ4FG-km1hOu53fhNew-/exec", {
+
+method:"POST",
+
+body:JSON.stringify({
+
+date:localStorage.getItem("date"),
+
+time:localStorage.getItem("time"),
+
+food:localStorage.getItem("food"),
+
+play:localStorage.getItem("play")
+
+})
+
+});
+
+
+alert("좋아! 이대로 놀러 가자 😆");
+
+
+}
+
+</script>
+
+
+</body>
+
+</html>

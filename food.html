@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<title>메뉴 고르기 🍽️</title>
+
+
+<style>
+
+body {
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff0f5;
+    font-family:Arial, sans-serif;
+}
+
+
+.card {
+
+    width:450px;
+    padding:40px;
+
+    background:white;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+
+}
+
+
+h1 {
+    margin-bottom:30px;
+}
+
+
+.menu {
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+
+button {
+
+    height:60px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#eee;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:0.2s;
+
+}
+
+
+
+button:hover {
+
+    transform:scale(1.05);
+
+}
+
+
+
+.selected {
+
+    background:#ff6699;
+
+    color:white;
+
+}
+
+
+
+#confirm {
+
+    margin-top:30px;
+
+    width:150px;
+
+    height:45px;
+
+    background:#ff6699;
+
+    color:white;
+
+    font-size:17px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="card">
+
+
+<h1>뭐 먹으러 갈까? 🍽️</h1>
+
+
+<div class="menu">
+
+
+<button onclick="selectMenu(this)">
+🍚 한식
+</button>
+
+
+<button onclick="selectMenu(this)">
+🍣 일식
+</button>
+
+
+<button onclick="selectMenu(this)">
+🥢 중식
+</button>
+
+
+<button onclick="selectMenu(this)">
+🍝 양식
+</button>
+
+
+<button onclick="selectMenu(this)">
+☕ 카페·디저트
+</button>
+
+
+<button onclick="selectMenu(this)">
+🤔 아무거나
+</button>
+
+
+</div>
+
+
+<button id="confirm" onclick="confirmMenu()">
+결정하기
+</button>
+
+
+</div>
+
+
+
+<script>
+
+
+let selected = "";
+
+
+function selectMenu(button){
+
+    // 기존 선택 제거
+    document.querySelectorAll(".menu button")
+    .forEach(btn=>{
+        btn.classList.remove("selected");
+    });
+
+
+    // 현재 선택
+    button.classList.add("selected");
+
+    selected = button.innerText;
+
+}
+
+
+
+function confirmMenu(){
+
+    if(selected==""){
+
+        alert("메뉴를 골라줘 🍽️");
+        return;
+
+    }
+
+
+    localStorage.setItem("food", selected);
+
+
+    location.href="play.html";
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

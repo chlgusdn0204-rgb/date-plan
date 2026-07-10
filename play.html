@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<title>우리 뭐 하고 놀까? 😊</title>
+
+<style>
+
+body {
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff0f5;
+    font-family:Arial, sans-serif;
+}
+
+
+.card {
+    width:450px;
+    padding:40px;
+
+    background:white;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+
+h1 {
+    margin-bottom:30px;
+}
+
+
+.activities {
+
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:15px;
+
+}
+
+
+button {
+
+    height:55px;
+
+    border:none;
+    border-radius:20px;
+
+    background:#eee;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:0.2s;
+
+}
+
+
+button:hover {
+
+    transform:scale(1.05);
+
+}
+
+
+.selected {
+
+    background:#ff6699;
+    color:white;
+
+}
+
+
+#confirm {
+
+    margin-top:30px;
+
+    width:150px;
+
+    background:#ff6699;
+    color:white;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+<h1>우리 뭐 하고 놀까? 😊</h1>
+
+
+<div class="activities">
+
+<button onclick="selectPlay(this)">🎤 노래방</button>
+
+<button onclick="selectPlay(this)">🎬 영화</button>
+
+<button onclick="selectPlay(this)">💻 PC방</button>
+
+<button onclick="selectPlay(this)">🎱 당구</button>
+
+<button onclick="selectPlay(this)">🎳 볼링</button>
+
+<button onclick="selectPlay(this)">🏓 탁구</button>
+
+<button onclick="selectPlay(this)">🏸 배드민턴</button>
+
+<button onclick="selectPlay(this)">🌳 산책</button>
+
+<button onclick="selectPlay(this)">☕ 카페</button>
+
+
+</div>
+
+
+<button id="confirm" onclick="complete()">
+결정하기
+</button>
+
+
+</div>
+
+
+
+<script>
+
+let choice="";
+
+
+function selectPlay(btn){
+
+document.querySelectorAll(".activities button")
+.forEach(b=>{
+    b.classList.remove("selected");
+});
+
+
+btn.classList.add("selected");
+
+choice=btn.innerText;
+
+}
+
+
+
+function complete(){
+
+    if(choice==""){
+
+        alert("뭐 하고 놀지 골라줘 😊");
+        return;
+
+    }
+
+
+    localStorage.setItem("play", choice);
+
+
+    location.href="result.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
