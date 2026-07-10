@@ -4,10 +4,17 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>메뉴 고르기 🍽️</title>
 
 
 <style>
+
+* {
+    box-sizing:border-box;
+}
+
 
 body {
     margin:0;
@@ -22,10 +29,13 @@ body {
 }
 
 
+
 .card {
 
-    width:450px;
-    padding:40px;
+    width:90%;
+    max-width:450px;
+
+    padding:30px;
 
     background:white;
 
@@ -38,9 +48,11 @@ body {
 }
 
 
+
 h1 {
     margin-bottom:30px;
 }
+
 
 
 .menu {
@@ -52,6 +64,7 @@ h1 {
     gap:20px;
 
 }
+
 
 
 button {
@@ -105,6 +118,54 @@ button:hover {
     color:white;
 
     font-size:17px;
+
+}
+
+
+/* 모바일 대응 */
+
+@media(max-width:480px){
+
+
+    .card {
+
+        padding:25px;
+
+    }
+
+
+    h1 {
+
+        font-size:24px;
+
+    }
+
+
+    .menu {
+
+        gap:12px;
+
+    }
+
+
+    button {
+
+        height:50px;
+
+        font-size:16px;
+
+    }
+
+
+    #confirm {
+
+        width:130px;
+
+        height:42px;
+
+        font-size:15px;
+
+    }
 
 }
 
@@ -178,14 +239,12 @@ let selected = "";
 
 function selectMenu(button){
 
-    // 기존 선택 제거
     document.querySelectorAll(".menu button")
     .forEach(btn=>{
         btn.classList.remove("selected");
     });
 
 
-    // 현재 선택
     button.classList.add("selected");
 
     selected = button.innerText;
@@ -199,6 +258,7 @@ function confirmMenu(){
     if(selected==""){
 
         alert("메뉴를 골라줘 🍽️");
+
         return;
 
     }
