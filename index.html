@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>놀자아</title>
 
 <style>
@@ -22,8 +23,10 @@ body {
 
 
 .card {
-    width:420px;
+    width:90%;
+    max-width:420px;
     height:300px;
+
     background:white;
     border-radius:25px;
     display:flex;
@@ -37,6 +40,7 @@ body {
 h1 {
     font-size:30px;
     margin-bottom:50px;
+    text-align:center;
 }
 
 
@@ -55,6 +59,24 @@ button {
     cursor:pointer;
 }
 
+@media(max-width:480px){
+
+    h1 {
+        font-size:24px;
+        margin-bottom:40px;
+    }
+
+    .buttons {
+        gap:20px;
+    }
+
+    button {
+        width:100px;
+        height:42px;
+        font-size:16px;
+    }
+
+}
 
 #yes {
     background:#ff6699;
