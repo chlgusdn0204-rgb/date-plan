@@ -88,8 +88,8 @@ button {
     background:#dddddd;
     position:relative;
     transition:0.25s;
+    touch-action:none;
 }
-
 </style>
 
 </head>
@@ -128,17 +128,35 @@ button {
 const no = document.getElementById("no");
 
 
-no.addEventListener("mouseover",()=>{
+function moveNo(){
 
-
-    let x = Math.random()*400 - 200;
-    let y = Math.random()*250 - 125;
-
+    let x = Math.random() * 400 - 200;
+    let y = Math.random() * 250 - 125;
 
     no.style.transform =
     `translate(${x}px, ${y}px)`;
 
+}
+
+
+// PC
+no.addEventListener("mouseover", moveNo);
+
+
+// 모바일
+no.addEventListener("touchstart", function(e){
+
+    e.preventDefault();
+    moveNo();
+
 });
+
+
+function goDate(){
+
+    location.href="date.html";
+
+}
 
 
 
