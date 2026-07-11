@@ -4,17 +4,10 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>우리의 약속 ❤️</title>
 
 
 <style>
-
-* {
-    box-sizing:border-box;
-}
-
 
 body {
 
@@ -32,13 +25,11 @@ body {
 }
 
 
-
 .card {
 
-    width:90%;
-    max-width:420px;
+    width:420px;
 
-    padding:30px;
+    padding:40px;
 
     background:white;
 
@@ -51,13 +42,11 @@ body {
 }
 
 
-
 h1 {
 
     margin-bottom:30px;
 
 }
-
 
 
 .info {
@@ -101,48 +90,6 @@ button {
 }
 
 
-
-/* 모바일 대응 */
-
-@media(max-width:480px){
-
-
-    .card {
-
-        padding:25px;
-
-    }
-
-
-    h1 {
-
-        font-size:24px;
-
-    }
-
-
-    .info {
-
-        font-size:16px;
-
-        padding:15px;
-
-    }
-
-
-    button {
-
-        width:160px;
-
-        height:42px;
-
-        font-size:15px;
-
-    }
-
-}
-
-
 </style>
 
 </head>
@@ -158,6 +105,7 @@ button {
 
 
 <div class="info">
+
 
 
 <p>📅 날짜 : <span id="date"></span></p>
@@ -185,6 +133,8 @@ button {
 
 <script>
 
+
+// 이전 페이지에서 저장한 정보 불러오기
 
 document.getElementById("date").innerText =
 localStorage.getItem("date");
@@ -222,7 +172,9 @@ time:localStorage.getItem("time"),
 
 food:localStorage.getItem("food"),
 
-play:localStorage.getItem("play")
+play:localStorage.getItem("play"),
+
+name:localStorage.getItem("name")
 
 })
 
@@ -231,9 +183,10 @@ play:localStorage.getItem("play")
 
 alert("좋아! 이대로 놀러 가자 😆");
 
+localStorage.clear();
+
 
 }
-
 
 </script>
 
